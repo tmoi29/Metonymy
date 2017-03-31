@@ -13,5 +13,8 @@ public interface Deque<T> {
     public T getLast();
 
     public int size();
+
+    public boolean isEmpty();
     
 }
+
