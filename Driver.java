@@ -93,7 +93,7 @@ public class Driver<T> implements Deque<T> {
     public String toString() {
 	DLLNode<T> foo = _front;
 	String retStr = "";
-	while ( foo != null ) {
+	for ( int i = 0; i < size(); i++ ) {
 	    retStr += foo.getCargo() + " ";
 	    foo = foo.getNext();
 	}
