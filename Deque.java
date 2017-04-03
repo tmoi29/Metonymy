@@ -1,8 +1,8 @@
-/*=============================
-  Metonymy -- Ryan Siu, Tiffany Moi, Mohamed Tamara
-  Deque Interface
-  Methods here are implemented by Driver file
-  ============================*/
+/******************************
+ * Metonymy -- Ryan Siu, Tiffany Moi, Mohamed Tamara
+ * Deque interface
+ * Methods here are implemented by class DLLDeque
+ ******************************/
 
 public interface Deque<T> {
 

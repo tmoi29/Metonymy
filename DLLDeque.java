@@ -1,9 +1,11 @@
 import java.util.NoSuchElementException;
 
 /*****************************************************
- * class DLLQueue
- * uses a doubly-linked nodes to implement a QUEUE
- * (a collection with FIFO property)
+ * Metonymy -- Ryan Siu, Tiffany Moi, Mohamed Tamara
+ *
+ * class DLLDeque
+ * uses a doubly-linked nodes to implement a DEQUE
+ * (a collection with both FIFO and LIFO properties depending on its usage)
  *
  *         -------------------------------
  *   front |  <-->   Q U E U E   <-->    | end
@@ -11,25 +13,28 @@ import java.util.NoSuchElementException;
  *
  ******************************************************/
 
-public class Driver<T> implements Deque<T> {
+public class DLLDeque<T> implements Deque<T> {
+    
     //declaring instance variables
     private int _size;
     private DLLNode<T> _front;
     private DLLNode<T> _end;
     
     /*=============================
-      Driver() -- default constuctor
+      DLLDeque() -- default constuctor
       Initialing instance variables
       =============================*/
-    public Driver() {
+    public DLLDeque() {
 	_front = null;
 	_end = null;
 	_size = 0;
     }
+
+    
     /*=============================
       addFirst() -- adds the element to the front of the DLList
-      precond: an object is given
-      postcond: adds element to the front of the list
+      precond: an object of type T is given
+      postcond: adds element to the front of the deque
       =============================*/
     public void addFirst( T foo ){
 	DLLNode<T> add = new DLLNode( foo, null, null );
@@ -44,11 +49,12 @@ public class Driver<T> implements Deque<T> {
 	_front = add;
 	_size++;
     }
+
     
     /*=============================
       addLast() -- adds the element to the end of the DLList
-      precond: an object is given
-      postcond: adds element to the end of the list
+      precond: an object of type T is given
+      postcond: adds element to the end of the deque
       =============================*/
     public void addLast( T foo ) {
 	DLLNode<T> add = new DLLNode( foo, null, null );
@@ -62,19 +68,22 @@ public class Driver<T> implements Deque<T> {
 	_end = add;
 	_size++;
     }
+
+    
     /*=============================
       removeFirst() -- removes the element at the front of the DLList
-      postcond: removes the first element and reassigns the pointers
+      postcond: removes the first element and reassigns the pointers, or
+                exception thrown if deque is empty
       =============================*/
     public T removeFirst() {
-	//checks if the list is empty
+	//checks if the deque is empty
 	if ( isEmpty() ) {
 	    throw new NoSuchElementException( "Deque is empty" );
 	}
 	//removing value
 	T foo = _front.getCargo();
 	
-	//removing the last value in the list
+	//removing the last value in the deque
 	if ( size() == 1 ) {
 	    _front = null;
 	    _end = null;
@@ -88,12 +97,15 @@ public class Driver<T> implements Deque<T> {
 	_size--;
 	return foo;
     }
+
+    
     /*=============================
-      removeLast() -- removes the element at the end of the list
-      postcond: removes the element at the end of the list and reassigns the end pointer
+      removeLast() -- removes the element at the end of the deque
+      postcond: removes the element at the end of the deque and reassigns 
+                the end pointer, or exception thrown if deque is empty
       =============================*/
     public T removeLast() {
-	//checks if the list is already empty
+	//checks if the deque is already empty
 	if ( isEmpty() ) {
 	    throw new NoSuchElementException( "Deque is empty" );
 	}
@@ -115,7 +127,12 @@ public class Driver<T> implements Deque<T> {
 	_size--;
 	return foo;
     }
+
     
+    /*=============================
+      getFirst() -- returns the cargo held in the front node
+      postcond: exception if deque is empty, or _front cargo returned
+      =============================*/
     public T getFirst() {
 	if ( isEmpty() ) {
 	    throw new NoSuchElementException( "Deque is empty" );
@@ -124,6 +141,11 @@ public class Driver<T> implements Deque<T> {
 	return _front.getCargo();
     }
 
+
+    /*=============================
+      getFirst() -- returns the cargo held in the last node
+      postcond: exception if deque is empty, or _end cargo returned
+      =============================*/
     public T getLast() {
 	if ( isEmpty() ) {
 	    throw new NoSuchElementException( "Deque is empty" );
@@ -132,26 +154,43 @@ public class Driver<T> implements Deque<T> {
 	return _end.getCargo();
     }
 
+    
+    /*=============================
+      size() -- returns the number of elements in the deque
+      postcond: _size is returned
+      =============================*/
     public int size() {
 	return _size;
     }
 
+    
+    /*=============================
+      isEmpty() -- returns true if deque is empty, false otherwise
+      postcond: whether or not _size is 0 is returned
+      =============================*/    
     public boolean isEmpty() {
 	return _size == 0;
     }
 
+    
+    /*=============================
+      toString() -- returns a String representation of the deque
+      postcond: String is returned
+      =============================*/
     public String toString() {
 	DLLNode<T> foo = _front;
-	String retStr = "";
+	String retStr = "_FRONT_ <-> ";
 	for ( int i = 0; i < size(); i++ ) {
-	    retStr += foo.getCargo() + " ";
+	    retStr += foo.getCargo() + " <-> ";
 	    foo = foo.getNext();
 	}
-	return retStr;
+	return retStr + "_END_";
     }
 
+
+    // testing
     public static void main( String[] args ) {
-	Driver d = new Driver();
+	DLLDeque d = new DLLDeque();
 	d.addLast( "e" );
 	d.addFirst( "hi" );
 	d.addFirst( "Hello" );
