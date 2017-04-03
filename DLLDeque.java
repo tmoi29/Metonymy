@@ -186,31 +186,5 @@ public class DLLDeque<T> implements Deque<T> {
 	}
 	return retStr + "_END_";
     }
-
-
-    // testing
-    public static void main( String[] args ) {
-	DLLDeque d = new DLLDeque();
-	d.addLast( "e" );
-	d.addFirst( "hi" );
-	d.addFirst( "Hello" );
-	d.addFirst( "Bye" );
-	d.addLast( "a" );
-	d.addLast( "b" );
-	d.addLast( "c" );
-	System.out.println( d );
-	d.removeFirst();
-	d.removeLast();
-	d.removeFirst();
-	d.removeLast();
-	d.removeLast();
-	d.removeFirst();
-	System.out.println( d );
-	d.removeFirst();
-	System.out.println( d );
-	//d.removeFirst(); // error
-	//d.getFirst(); //error
-	d.addFirst( "a" );
-	System.out.println( d.getFirst() );
-    }
+    
 }
