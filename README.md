@@ -7,12 +7,12 @@ Team Metonymy chose to implement linked nodes as the undelying data structure fo
 ## Method Selection
 
 For our implementation of a deque class, we chose:
-* addFirst() - adds an element to the front of a deque
-* addLast() - adds an element to the end of a deque
-* removeFirst() - removes an element from the front of a deque
-* removeLast() - removes an element from the end of a deque
-* getFirst()
-* getLast()
-* size()
-* isEmpty()
-* toString()
+* void addFirst() - adds an element to the front of the deque
+* void addLast() - adds an element to the end of the deque
+* T removeFirst() - removes an element from the front of the deque
+* T removeLast() - removes an element from the end of the deque
+* T getFirst() - gets the element at the front of the deque
+* T getLast() - gets the element at the end of the deque
+* int size() - gets the size of the deque
+* boolean isEmpty() - checks if the deque has 
+* String toString() - returns the deque as a String
