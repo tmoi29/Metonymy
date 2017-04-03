@@ -38,7 +38,7 @@ public class Driver<T> implements Deque<T> {
 
     public T removeFirst() {
 	if ( isEmpty() ) {
-	    throw new NoSuchElementException( "Deque is empty, element cannot be removed" );
+	    throw new NoSuchElementException( "Deque is empty" );
 	}
 	
 	T foo = _front.getCargo();
@@ -57,7 +57,7 @@ public class Driver<T> implements Deque<T> {
 
     public T removeLast() {
 	if ( isEmpty() ) {
-	    throw new NoSuchElementException( "Deque is empty, element cannot be removed" );
+	    throw new NoSuchElementException( "Deque is empty" );
 	}
 	
 	T foo = _end.getCargo();
@@ -75,18 +75,26 @@ public class Driver<T> implements Deque<T> {
     }
     
     public T getFirst() {
-	return null;
+	if ( isEmpty() ) {
+	    throw new NoSuchElementException( "Deque is empty" );
+	}
+	
+	return _front.getCargo();
     }
 
     public T getLast() {
-	return null;
+	if ( isEmpty() ) {
+	    throw new NoSuchElementException( "Deque is empty" );
+	}
+	
+	return _end.getCargo();
     }
 
     public int size() {
 	return _size;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
 	return _size == 0;
     }
 
@@ -119,6 +127,9 @@ public class Driver<T> implements Deque<T> {
 	System.out.println( d );
 	d.removeFirst();
 	System.out.println( d );
-	d.removeFirst(); // error
+	//d.removeFirst(); // error
+	//d.getFirst(); //error
+	d.addFirst( "a" );
+	System.out.println( d.getFirst() );
     }
 }

@@ -1,3 +1,9 @@
+/*=============================
+  Metonymy -- Ryan Siu, Tiffany Moi, Mohamed Tamara
+  Deque Interface
+  Methods here are implemented by Driver file
+  ============================*/
+
 public interface Deque<T> {
 
     public void addFirst( T foo );
