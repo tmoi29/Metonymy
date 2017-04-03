@@ -3,6 +3,10 @@
 Lab #02<br>
 Ryan Siu, Tiffany Moi, Mohamed Tamara
 
+## Instructions
+
+Deque.java contains the Deque interface that DLLDeque.java implements. Driver.java contains test cases for the methods in the DLLDeque class. 
+
 ## Data Type Choice
 
 Team Metonymy chose to implement doubly-linked nodes as the undelying data structure for our deque. We chose doubly-linked nodes because the all of the add and remove methods using nodes have a runtime of O(1), while either the add or remove method for both arrays and ArrayLists will have a runtime of O(n), unless variables are introduced to shift the data in the array or ArrayList. This efficiency and relative simplicty for linked nodes is what caused us to choose them as the underlying data container for DLLDeque.
@@ -20,5 +24,8 @@ For our implementation of a deque class, we chose:
 * ```boolean isEmpty()``` - checks if the deque has 
 * ```String toString()``` - returns the deque as a String
 
-<p>The primary methods that the Deque interface requires to work as a deque are methods to insert, remove, and examine from either end of the deque, from the [Java Deque API](https://docs.oracle.com/javase/7/docs/api/java/util/Deque.html). From these methods, we decided to write the ones that threw exceptions when the deque was empty, rather than the ones that returned ```null```. This allows anyone using our DLLDeque class to catch exceptions and handle them in a way that is useful to them, rather than us handling the error for them by returning ```null```.</p>
-<p>We implemented size() and isEmpty() because we thought those methods would be useful, and toString() is necessary to represent the Deque in a useful way when printing it.</p>
+The primary methods that the Deque interface requires to work as a deque are methods to insert, remove, and examine from either end of the deque, from the [Java Deque API][1]. From these methods, we decided to write the ones that threw exceptions when the deque was empty, rather than the ones that returned ```null```. This allows anyone using our DLLDeque class to catch exceptions and handle them in a way that is useful to them, rather than us handling the error for them by returning ```null```.
+<br><br>
+We implemented size() and isEmpty() because we thought those methods would be useful, and toString() is necessary to represent the Deque in a useful way when printing it.
+
+[1]: https://docs.oracle.com/javase/7/docs/api/java/util/Deque.html
