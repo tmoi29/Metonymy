@@ -21,7 +21,7 @@ For our implementation of a deque class, we chose:
 * ```T getFirst()``` - gets the element at the front of the deque
 * ```T getLast()``` - gets the element at the end of the deque
 * ```int size()``` - gets the size of the deque
-* ```boolean isEmpty()``` - checks if the deque has 
+* ```boolean isEmpty()``` - checks if the deque is empty
 * ```String toString()``` - returns the deque as a String
 
 The primary methods that the Deque interface requires to work as a deque are methods to insert, remove, and examine from either end of the deque, from the [Java Deque API][1]. From these methods, we decided to write the ones that threw exceptions when the deque was empty, rather than the ones that returned ```null```. This allows anyone using our DLLDeque class to catch exceptions and handle them in a way that is useful to them, rather than us handling the error for them by returning ```null```.
