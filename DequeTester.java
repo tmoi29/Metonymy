@@ -1,77 +1,61 @@
-/*****************************************************
- * Metonymy -- Ryan Siu, Tiffany Moi, Mohamed Tamara
- *
- * class DequeTester
- * used for testing methods
- ******************************************************/
+
 import java.util.NoSuchElementException;
-import java.util.ArrayList;
 
 public class DequeTester {
-    
-    public static void main( String[] args ) {
 
-	// Test using deque of Strings
-	System.out.println( "\nTesting deque of Strings" );
-	DLLDeque<String> stringDeque = new DLLDeque<String>(); //error if generic typing is not allowed
-	System.out.println( stringDeque );
-	System.out.println( "\nAdding elements..." );
-	// a, b, c should be added to the deque
-	stringDeque.addLast( "b" );
-	stringDeque.addFirst( "a" );
-	stringDeque.addLast( "c" );
-	System.out.println( stringDeque ); // a b c
-	System.out.println( "\nRemoving elements..." );
-	// a and c should be removed from the deque
-	stringDeque.removeFirst();
-	stringDeque.removeLast();
-	System.out.println( stringDeque ); // b
-	System.out.println( "\nRemoving remaining element..." );
-	// b should be removed from the deque
-	stringDeque.removeFirst();
-	System.out.println( stringDeque ); // empty deque
+    public static void main(String[] args) {
 
-	System.out.println( "\nRemvoing element..." );
-	// should print exception if exceptions are handled
-	try {
-	    stringDeque.removeFirst(); // error
-	} catch (NoSuchElementException e) {
-	    e.printStackTrace(); //prints error message
-	}
-	System.out.println( "\nGetting first element..." );
-	// should print exception if exceptions are handled
-	try {
-	    stringDeque.getFirst(); //error
-	} catch (NoSuchElementException e) {
-	    e.printStackTrace(); //prints error message
-	}
+	DLLDeque test = new DLLDeque();
 
-	System.out.println( "\nAdding element..." );
-	// a should be added to the deque
-	stringDeque.addFirst( "a" );
-	System.out.println( "\nGetting first element..." );
-	// a should be printed
-	System.out.println( stringDeque.getFirst() + "\n" ); // a
-
-
-	// Test using deque of Objects
-	System.out.println( "\nTesting deque of Objects" );
-	DLLDeque mixDeque = new DLLDeque();
-	System.out.println( "\nAdding elements..." );
-	// elements should be added to the deque
-	mixDeque.addFirst( 1 );
-	mixDeque.addLast( "a" );
-	mixDeque.addFirst( new ArrayList<Integer>() );
-	// elements should be properly printed in order
-	System.out.println( mixDeque );
-	System.out.println( "\nAdding 64 to the ArrayList at front" );
-	// first element should be removed
-	ArrayList a = (ArrayList)mixDeque.removeFirst(); //pop the ArrayList
-	a.add( 64 ); //add element 64
-	// ArrayList containing 64 should be added to the deque
-	mixDeque.addFirst( a );
-	System.out.println( mixDeque ); // [64] 1 a
+	//print empty Deque
+	System.out.println(test);
 	
+	// should throw NoSuchElementException
+	try { 
+	    System.out.println(test.removeFirst());
+	}
+	catch (NoSuchElementException e) {
+	    System.out.println("NoSuchElementException caught");
+	}
+
+	// should throw NoSuchElementException
+	try { 
+	    System.out.println(test.removeLast());
+	}
+	catch (NoSuchElementException e) {
+	    System.out.println("NoSuchElementException caught");
+	}
+
+	//true
+	System.out.println(test.isEmpty());
+
+	//add various data of different type
+	test.addFirst(8);
+	test.addFirst("hi");
+	test.addFirst(null);
+	test.addLast(new String[5]);
+	test.addLast(8.0f);
+
+	//should be... 8.0, memoryLocation, 8, hi, null,
+	System.out.println(test);
+
+	//false
+	System.out.println(test.isEmpty());
+
+	//null
+	System.out.println(test.removeFirst());
+
+	//8.0
+	System.out.println(test.removeLast());
+
+	//hi
+	System.out.println(test.removeFirst());
+
+	//memory location
+	System.out.println(test.removeLast());
+
+	//8
+	System.out.println(test.removeFirst());	
     }
-    
+
 }
