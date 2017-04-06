@@ -5,7 +5,7 @@ Ryan Siu, Tiffany Moi, Mohamed Tamara
 
 ## Instructions
 
-Deque.java contains the Deque interface that DLLDeque.java implements. Driver.java contains test cases for the methods in the DLLDeque class. 
+Deque.java contains the Deque interface that DLLDeque.java implements. Driver files should test the methods in class DLLDeque.
 
 ## Data Type Choice
 
