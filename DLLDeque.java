@@ -34,55 +34,48 @@ public class DLLDeque<T> implements Deque<T> {
     /*=============================
       addFirst() -- adds the element to the front of the DLList
       precond: an object of type T is given
-      postcond: adds element to the front of the deque
+      postcond: adds element to the front of the deque, or exception thrown if
+                input is null
       =============================*/
     public void addFirst( T foo ){
+	//if input is null
 	if (foo == null){
 	    throw new NullPointerException( "Cannot add null elements" );
 	}
-	try{
-	    DLLNode<T> add = new DLLNode( foo, null, null );
-	    //is it the first element??
-	    if ( isEmpty() ) {
-		_end = add;
-	    } 
-	    else {
-		add.setNext( _front );
-		_front.setPrev( add );
-	    }
-	    _front = add;
-	    _size++;
+	DLLNode<T> add = new DLLNode( foo, null, null );
+	//is it the first element??
+	if ( isEmpty() ) {
+	    _end = add;
+	} else {
+	    add.setNext( _front );
+	    _front.setPrev( add );
 	}
-	catch (ClassCastException e){
-	    throw new ClassCastException( "Does not match the class" );
-	}
+	_front = add;
+	_size++;
     }
 
     
     /*=============================
       addLast() -- adds the element to the end of the DLList
       precond: an object of type T is given
-      postcond: adds element to the end of the deque
+      postcond: adds element to the end of the deque, or exception thrown if
+                input is null
       =============================*/
     public void addLast( T foo ) {
+	//if input is null
 	if (foo == null){
 	    throw new NullPointerException( "Cannot add null elements" );
 	}
-	try{
-	    DLLNode<T> add = new DLLNode( foo, null, null );
-	    //is it the first element??
-	    if ( isEmpty() ) {
-		_front = add;
-	    } else {
-		add.setPrev( _end );
-		_end.setNext( add );
-	    }
-	    _end = add;
-	    _size++;
+	DLLNode<T> add = new DLLNode( foo, null, null );
+	//is it the first element??
+	if ( isEmpty() ) {
+	    _front = add;
+	} else {
+	    add.setPrev( _end );
+	    _end.setNext( add );
 	}
-	catch (ClassCastException e){
-	    throw new ClassCastException( "Does not match the class" );
-	}
+	_end = add;
+	_size++;
     }
 
     

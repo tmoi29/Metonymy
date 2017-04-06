@@ -65,20 +65,6 @@ public class DequeTester {
 	//8
 	System.out.println(test.removeFirst());
 
-	System.out.println("\nTesting ClassCastExceptions");
-
-	DLLDeque<Integer> test2 = new DLLDeque<Integer>();
-
-	ArrayList a = new ArrayList();
-	a.add(10);
-
-	try{
-	    test.addLast(a); // should return ClassCastException
-	}
-	catch (ClassCastException e){
-	    System.out.println("ClassCastException caught");
-	}
-
     }
 
 }
