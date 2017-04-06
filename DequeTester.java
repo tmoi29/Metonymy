@@ -1,5 +1,5 @@
-
 import java.util.NoSuchElementException;
+import java.util.ArrayList;
 
 public class DequeTester {
 
@@ -30,9 +30,20 @@ public class DequeTester {
 	System.out.println(test.isEmpty());
 
 	//add various data of different type
+	try{
+	    test.addFirst(null); // should return NullPointerException
+	}
+	catch (NullPointerException e){
+	    System.out.println("NullPointerException caught");
+	}
+	try{
+	    test.addLast(null); // should return NullPointerException
+	}
+	catch (NullPointerException e){
+	    System.out.println("NullPointerException caught");
+	}
 	test.addFirst(8);
 	test.addFirst("hi");
-	test.addFirst(null);
 	test.addLast(new String[5]);
 	test.addLast(8.0f);
 
@@ -41,9 +52,6 @@ public class DequeTester {
 
 	//false
 	System.out.println(test.isEmpty());
-
-	//null
-	System.out.println(test.removeFirst());
 
 	//8.0
 	System.out.println(test.removeLast());
@@ -55,7 +63,22 @@ public class DequeTester {
 	System.out.println(test.removeLast());
 
 	//8
-	System.out.println(test.removeFirst());	
+	System.out.println(test.removeFirst());
+
+	System.out.println("\nTesting ClassCastExceptions");
+
+	DLLDeque<Integer> test2 = new DLLDeque<Integer>();
+
+	ArrayList a = new ArrayList();
+	a.add(10);
+
+	try{
+	    test.addLast(a); // should return ClassCastException
+	}
+	catch (ClassCastException e){
+	    System.out.println("ClassCastException caught");
+	}
+
     }
 
 }

@@ -37,17 +37,25 @@ public class DLLDeque<T> implements Deque<T> {
       postcond: adds element to the front of the deque
       =============================*/
     public void addFirst( T foo ){
-	DLLNode<T> add = new DLLNode( foo, null, null );
-	//is it the first element??
-	if ( isEmpty() ) {
-	    _end = add;
-	} 
-	else {
-	    add.setNext( _front );
-	    _front.setPrev( add );
+	if (foo == null){
+	    throw new NullPointerException( "Cannot add null elements" );
 	}
-	_front = add;
-	_size++;
+	try{
+	    DLLNode<T> add = new DLLNode( foo, null, null );
+	    //is it the first element??
+	    if ( isEmpty() ) {
+		_end = add;
+	    } 
+	    else {
+		add.setNext( _front );
+		_front.setPrev( add );
+	    }
+	    _front = add;
+	    _size++;
+	}
+	catch (ClassCastException e){
+	    throw new ClassCastException( "Does not match the class" );
+	}
     }
 
     
@@ -57,16 +65,24 @@ public class DLLDeque<T> implements Deque<T> {
       postcond: adds element to the end of the deque
       =============================*/
     public void addLast( T foo ) {
-	DLLNode<T> add = new DLLNode( foo, null, null );
-	//is it the first element??
-	if ( isEmpty() ) {
-	    _front = add;
-	} else {
-	    add.setPrev( _end );
-	    _end.setNext( add );
+	if (foo == null){
+	    throw new NullPointerException( "Cannot add null elements" );
 	}
-	_end = add;
-	_size++;
+	try{
+	    DLLNode<T> add = new DLLNode( foo, null, null );
+	    //is it the first element??
+	    if ( isEmpty() ) {
+		_front = add;
+	    } else {
+		add.setPrev( _end );
+		_end.setNext( add );
+	    }
+	    _end = add;
+	    _size++;
+	}
+	catch (ClassCastException e){
+	    throw new ClassCastException( "Does not match the class" );
+	}
     }
 
     
