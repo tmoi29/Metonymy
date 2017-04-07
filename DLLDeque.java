@@ -35,12 +35,15 @@ public class DLLDeque<T> implements Deque<T> {
       addFirst() -- adds the element to the front of the DLList
       precond: an object of type T is given
       postcond: adds element to the front of the deque, or exception thrown if
-                input is null
+                input is null or of type DLLDeque to prevent infinite loop
       =============================*/
     public void addFirst( T foo ){
 	//if input is null
 	if (foo == null){
 	    throw new NullPointerException( "Cannot add null elements" );
+	}
+	if (foo instanceof DLLDeque) {
+	    throw new ClassCastException( "Cannot add elements of type DLLDeque" );
 	}
 	DLLNode<T> add = new DLLNode( foo, null, null );
 	//is it the first element??
@@ -59,12 +62,15 @@ public class DLLDeque<T> implements Deque<T> {
       addLast() -- adds the element to the end of the DLList
       precond: an object of type T is given
       postcond: adds element to the end of the deque, or exception thrown if
-                input is null
+                input is null or of type DLLDeque to prevent infinite loop
       =============================*/
     public void addLast( T foo ) {
 	//if input is null
 	if (foo == null){
 	    throw new NullPointerException( "Cannot add null elements" );
+	}
+	if (foo instanceof DLLDeque) {
+	    throw new ClassCastException( "Cannot add elements of type DLLDeque" );
 	}
 	DLLNode<T> add = new DLLNode( foo, null, null );
 	//is it the first element??

@@ -33,7 +33,7 @@ public class DequeTester2{
 		//should print out the first element and remove it.
 		System.out.println(a.removeFirst());
 		//add the list as its own first element.--- > FAILURE
-		//a.addFirst(a);
-		//System.out.println(a);
+		a.addFirst(a);
+		System.out.println(a);
 	}
 }
