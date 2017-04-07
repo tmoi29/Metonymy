@@ -26,7 +26,7 @@ For our implementation of a deque class, we chose:
 
 The primary methods that the Deque interface requires to work as a deque are methods to insert, remove, and examine from either end of the deque, from the [Java Deque API][1]. From these methods, we decided to write the ones that threw exceptions when the deque was empty, rather than the ones that returned ```null```. This allows anyone using our DLLDeque class to catch exceptions and handle them in a way that is useful to them, rather than us handling the error for them by returning ```null```.
 <br><br>
-We implemented size() and isEmpty() because we thought those methods would be useful, and toString() is necessary to represent the Deque in a useful way when printing it.
+We implemented ```size()``` and ```isEmpty()``` because we thought those methods would be useful, and ```toString()``` is necessary to represent the Deque in a useful way when printing it.
 
 [1]: https://docs.oracle.com/javase/7/docs/api/java/util/Deque.html
 
