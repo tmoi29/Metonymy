@@ -42,6 +42,7 @@ public class DLLDeque<T> implements Deque<T> {
 	if (foo == null){
 	    throw new NullPointerException( "Cannot add null elements" );
 	}
+	//if input is of class DLLDeque
 	if (foo instanceof DLLDeque) {
 	    throw new ClassCastException( "Cannot add elements of type DLLDeque" );
 	}
@@ -69,6 +70,7 @@ public class DLLDeque<T> implements Deque<T> {
 	if (foo == null){
 	    throw new NullPointerException( "Cannot add null elements" );
 	}
+	//if input is of class DLLDeque
 	if (foo instanceof DLLDeque) {
 	    throw new ClassCastException( "Cannot add elements of type DLLDeque" );
 	}
