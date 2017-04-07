@@ -29,3 +29,8 @@ The primary methods that the Deque interface requires to work as a deque are met
 We implemented size() and isEmpty() because we thought those methods would be useful, and toString() is necessary to represent the Deque in a useful way when printing it.
 
 [1]: https://docs.oracle.com/javase/7/docs/api/java/util/Deque.html
+
+## Changes
+
+The following are changes we have made to our code in response to code review feedback:
+* Added ClassCastException to ```addFirst( T foo )``` and ```addLast( T foo )``` methods in class DLLQueue, thrown if ```foo``` is of type DLLQueue (thanks Team 4294967296)
